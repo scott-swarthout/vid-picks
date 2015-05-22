@@ -11,12 +11,12 @@ Meteor.methods({
             startIndex = doc.url.indexOf("=");
 
             videoId = doc.url.substring(startIndex + 1);
-            embedCode = "url" + videoId;
-            result = Meteor.http.get("url",
+            embedCode = "https://www.youtube.com/embed/" + videoId;
+            result = Meteor.http.get("http://www.youtube.com/oembed",
                 {
                     params: {
-                        "id": videoId,
-                        "thumbsize": "large_hd"
+                        "url": doc.url,
+                        "format": "json"
                     }
                 });
             if (result) {
@@ -24,24 +24,18 @@ Meteor.methods({
             }
         }
         else if (doc.origin === "Vimeo") {
-            startIndex = doc.url.indexOf(".com/");
-
-            videoId = doc.url.substring(startIndex + 5);
-            embedCode = "url" + videoId;
-            result = Meteor.http.get("url",
+            result = Meteor.http.get("https://vimeo.com/api/oembed.json",
                 {
                     params: {
-                        "data": "url",
-                        "video_id": videoId,
-                        "output": "json",
-                        "thumbsize": "medium2"
+                        "url": doc.url
                     }
                 });
             if (result) {
                 content = JSON.parse(result.content);
             }
+			embedCode = "https://player.vimeo.com/video/" + content.video_id.toString();
         }
-
+		
 
         var reviewContent = {
             "createdAt": moment().toDate(),
@@ -60,9 +54,9 @@ Meteor.methods({
             var videoContent = {
                 "url": embedCode,
                 "createdAt": moment().toDate(),
-                "title": content.video.title,
+                "title": content.title,
                 "origin": doc.origin,
-                "thumbnail": content.video.thumb
+                "thumbnail": content.thumbnail_url
             };
             Videos.insert(videoContent);
         }
