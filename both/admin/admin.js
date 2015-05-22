@@ -1,6 +1,15 @@
 this.AdminConfig = {
   name: " VidPicks",
 adminEmails: ['	john@example.com'],
+userSchema: new SimpleSchema({
+	'profile.firstName': {
+		type: String
+		},
+	'profile.lastName': {
+		type: String
+	}
+
+}),
 collections:
 {
 Reviews: {
