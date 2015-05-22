@@ -1,0 +1,32 @@
+<template name="profileBar">
+
+    <div class="container profileBar" style="margin-top: 20px; margin-bottom: 20px;">
+
+        <div class="row panel">
+            <div class="col-md-3 bg_blur ">
+            </div>
+            <div class="col-md-9  col-xs-12">
+                <div class="avatar profileBar">
+                    {{> avatar user=this shape="circle" size="large"}}
+                </div>
+                <div class="header">
+                    <h1>{{formatted profile}}</h1>
+                    <h4>VidPicks Critic</h4>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-3"></div>
+        <div class="row nav">
+
+            <div class="col-md-12 col-xs-12" style="margin: 0px;padding: 0px;">
+                <div class="col-md-3 col-xs-3"></div>
+                <div class="col-md-3 col-xs-3 well"> Average: {{round averageScore}}</div>
+                <div class="col-md-3 col-xs-3 well">Reviews: {{reviewCount}}</div>
+                <div class="col-md-3 col-xs-3 well">Latest: {{latestReview}}</div>
+            </div>
+        </div>
+
+    </div>
+
+</template>

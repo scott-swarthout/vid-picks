@@ -1,0 +1,70 @@
+<template name="newPost">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><i class="fa fa-plus"></i> Add a New Review</h4>
+
+                </div>
+
+                <div class="modal-body">
+                    {{#autoForm id="afInsertDemo" type="insert" collection="Reviews"}}
+
+                        <div class="form-group {{#if afFieldIsInvalid name='title'}}has-error{{/if}}">
+                            <label class="control-label">{{afFieldLabelText name='title'}}</label>
+                            {{> afFieldInput name='title' }}
+                            {{#if afFieldIsInvalid name='title'}}
+                                <span class="help-block">{{{afFieldMessage name='title'}}}</span>
+                            {{/if}}
+                        </div>
+                        <div class="form-group {{#if afFieldIsInvalid name='title'}}has-error{{/if}}">
+                            <label class="control-label">{{afFieldLabelText name='review'}}</label>
+                            {{> afFieldInput name='review' }}
+                            {{#if afFieldIsInvalid name='review'}}
+                                <span class="help-block">{{{afFieldMessage name='review'}}}</span>
+                            {{/if}}
+                        </div>
+                        <div class="form-group {{#if afFieldIsInvalid name='rating'}}has-error{{/if}}">
+                            <label class="control-label">{{afFieldLabelText name='rating'}}</label>
+                            {{> afFieldInput name='rating' }}
+                            {{#if afFieldIsInvalid name='rating'}}
+                                <span class="help-block">{{{afFieldMessage name='rating'}}}</span>
+                            {{/if}}
+                        </div>
+                        <div class="form-group {{#if afFieldIsInvalid name='description'}}has-error{{/if}}">
+                            <label class="control-label">{{afFieldLabelText name='description'}}</label>
+                            {{> afFieldInput name='description' }}
+                            {{#if afFieldIsInvalid name='description'}}
+                                <span class="help-block">{{{afFieldMessage name='description'}}}</span>
+                            {{/if}}
+                        </div>
+                        <div class="form-group {{#if afFieldIsInvalid name='tags'}}has-error{{/if}}">
+                            <label class="control-label">{{afFieldLabelText name='tags'}}</label>
+                            {{> afFieldInput name='tags' }}
+                            {{#if afFieldIsInvalid name='tags'}}
+                                <span class="help-block">{{{afFieldMessage name='tags'}}}</span>
+                            {{/if}}
+                        </div>
+                        <div class="form-group {{#if afFieldIsInvalid name='url'}}has-error{{/if}}">
+                            <label class="control-label">{{afFieldLabelText name='url'}}</label>
+                            {{> afFieldInput name='url' value=getUrl readonly=true}}
+                            {{#if afFieldIsInvalid name='url'}}
+                                <span class="help-block">{{{afFieldMessage name='url'}}}</span>
+                            {{/if}}
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Add Review</button>
+                        </div>
+                    {{/autoForm}}
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</template>

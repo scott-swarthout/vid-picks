@@ -1,0 +1,14 @@
+<template name='critics'>
+    <div class="template-critics">
+        <div class="container">
+            <div class="row">
+                <ul class="criticCards">
+                    {{#each editors}}
+                        {{> profileCard}}
+
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

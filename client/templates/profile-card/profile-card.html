@@ -1,0 +1,48 @@
+<template name="profileCard">
+
+    <div class="col-lg-3 col-sm-6">
+
+        <div class="card hovercard">
+            <div class="cardheader">
+
+            </div>
+            <div class="avatar profileCard">
+                {{> avatar user=this shape="circle" size="large"}}
+            </div>
+            <div class="info">
+                <div class="title">
+                    <a href="{{pathFor 'profile'}}"> {{formatted profile}}</a>
+                </div>
+                <div class="desc">VidPicks Critic</div>
+            </div>
+            <div class="bottom row">
+                <div class="panel col-md-3 status panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title text-center">{{round averageScore}}</h1>
+                    </div>
+                    <div class="panel-body text-center">
+                        Average
+                    </div>
+                </div>
+                <div class="panel col-md-3 status panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title text-center">{{reviewCount}}</h1>
+                    </div>
+                    <div class="panel-body text-center">
+                        Reviews
+                    </div>
+                </div>
+                <div class="panel col-md-3 status panel-primary">
+                    <div class="panel-heading">
+                        <h1 class="panel-title text-center">{{latestReview}}</h1>
+                    </div>
+                    <div class="panel-body text-center">
+                        Latest
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</template>

@@ -1,0 +1,33 @@
+<template name="thumbnail">
+
+    <div class="col-md-4">
+        <div class="thumbnail">
+            <div class="thumbnail-image">
+                <img src={{thumbnail}} alt="VIDEO THUMBNAIL" class="img-responsive" />
+            </div>
+
+            <div class='caption'>
+                <div class="row">
+                    <div class='col-xs-8 col-md-8'>
+                        <h4>{{title}}</h4>
+
+                    </div>
+                    <div class="col-xs-4 col-md-4">
+                        <div class="panel status panel-primary">
+                            <div class="panel-heading">
+                                <h1 class="panel-title text-center">{{ round averageScore}}</h1>
+                            </div>
+                            <div class="panel-body text-center">
+                                {{reviewCount}} Reviews
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <p align="center"><a href="{{pathFor 'view'}}" class="btn btn-primary btn-block">View</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</template>

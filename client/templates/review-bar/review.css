@@ -1,0 +1,25 @@
+.review {
+    width: 110px;
+    padding-left: 0px;
+    color: black;
+}
+
+.panel-body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+}
+
+.panel-title {
+    font-size: 20px;
+}
+
+.reviewText {
+    color: black;
+
+}
+
+.modal-body {
+    color: black;
+    font-size: 18px;
+}

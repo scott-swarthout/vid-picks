@@ -1,0 +1,12 @@
+<template name='profile'>
+    <div class="template-profile">
+        <div class="container">
+
+            {{> profileBar}}
+            <h3>Reviews by {{formatted profile}}:</h3>
+            {{# each reviews}}
+                {{>review}}
+            {{/each}}
+        </div>
+    </div>
+</template>

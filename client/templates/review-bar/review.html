@@ -1,0 +1,68 @@
+<template name="review">
+
+    <div class="reviewText">
+        <div class="row">
+            <div class="row">
+                <div class="span8">
+                    {{#if isActiveRoute regex='view'}}
+                        <h4><strong><a href="#">{{title}}</a></strong></h4>
+
+                    {{else}}
+                        {{#if isActiveRoute regex='profile'}}
+                            <h4><strong><a href="{{pathFor 'view' _id= videoId }}">{{videoName}}: {{title}}</a></strong>
+                            </h4>
+                        {{/if}}
+                    {{/if}}
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 col-md-1 review">
+                    <div class="panel status panel-primary">
+                        <div class="panel-heading">
+                            <h1 class="panel-title text-center">{{rating}}</h1>
+                        </div>
+                        <div class="panel-body text-center">
+                            {{description}}
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-md-8">
+                    <p>
+                        {{review}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-6 col-md-8">
+                    <p></p>
+
+                    <p>
+                        <i class="icon-user"></i> by <a
+                            href="{{pathFor 'profile' _id = author._id}}">{{formatted author}}</a>
+                        | <i class="icon-calendar"></i> {{viewdate createdAt}}
+                        | <i class="icon-tags"></i> Tags :
+                        {{#each tags}}
+                            <a href="#"><span class="label label-info">{{this}}</span></a>
+                        {{/each}}
+                    </p>
+                </div>
+                {{#if allowed}}
+                    {{#afModal class="btn btn-primary" collection="Reviews" omitFields= "createdAt, url, author" operation="update" doc=_id}}
+                        <i class='fa fa-pencil'></i> Edit
+
+                    {{/afModal}}
+                    {{#afModal class="btn btn-danger" collection="Reviews"  prompt= "Are you sure you want to delete this review?" operation="remove" doc=_id}}
+                        <i class='fa fa-trash'></i> Delete
+
+                    {{/afModal}}
+                {{/if}}
+            </div>
+        </div>
+        <hr>
+
+
+    </div>
+
+</template>

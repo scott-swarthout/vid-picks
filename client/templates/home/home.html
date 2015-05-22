@@ -1,0 +1,14 @@
+<template name="home">
+    <div class="template-home">
+        <div class="container">
+            <div class="row">
+                <ul class="thumbnails">
+                    {{#each videos}}
+                        {{> thumbnail}}
+
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
